@@ -46,13 +46,11 @@
           second-vec     (:second vecs)
           first-prepare  (sort-and-count-invertions first-vec inv)
           second-prepare (sort-and-count-invertions second-vec inv)
-          pre-inv        (+ (:inv first-prepare) (:inv second-prepare))
-          result         (sort-and-count-split-invertions
-                           (:sorted-vec first-prepare)
-                           (:sorted-vec second-prepare)
-                            pre-inv)]
-      {:inv        (:inv result)
-       :sorted-vec (:sorted-vec result)}))))
+          pre-inv        (+ (:inv first-prepare) (:inv second-prepare))]
+      (sort-and-count-split-invertions
+       (:sorted-vec first-prepare)
+       (:sorted-vec second-prepare)
+       pre-inv)))))
 
 ;; testing sort-and-count-invertions
 ;; (sort-and-count-invertions [3 1 5 2 4 6] 0)
